@@ -7,4 +7,4 @@ The server is build with express.js and socket.io, and the client is built with 
 <img src="imgs/ChatAppFlowChart.png" width=1000 />
 
 ## Features
-Right now the Chat App is in its very early features. The only feature is not putting the name again if the previous message is by the same person.
+Right now the Chat App is in its very early stages. The only feature is not putting the name again if the previous message is by the same person.

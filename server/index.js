@@ -12,21 +12,9 @@ const socketIO = require('socket.io')(http, {
 app.use(cors())
 
 socketIO.on('connection', (socket) => {
-    console.log(`⚡: ${socket.id} user just connected!`)  
-    socket.on("message", data => {
-      socket.broadcast.emit("messageResponse", data)
-    })
- 
-    socket.on('disconnect', () => {
-      console.log('🔥: A user disconnected');
-      socket.disconnect()
-    });
+    socket.on("message", data => socket.broadcast.emit("messageResponse", data))
+    socket.on('disconnect', socket.disconnect);
 });
-
-app.get("/api", (req, res) => {
-  res.json({message: "Hello"})
-});
-
    
 http.listen(PORT, () => {
     console.log(`Server listening on ${PORT}`);
